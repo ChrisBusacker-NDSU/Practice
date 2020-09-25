@@ -1,0 +1,100 @@
+#seeing what I can do with Beer data from the gov data
+#By: Christopher Busacker
+
+import numpy
+import xlrd
+
+#storing all the spread sheets to there respective month varible
+jan = ("201901beer.xlsx")
+feb = ("201902beer.xlsx")
+mar = ("201903beer.xlsx")
+apr = ("201904beer.xlsx")
+may = ("201905beer.xlsx")
+jun = ("201906beer.xlsx")
+jul = ("201907beer.xlsx")
+aug = ("201908beer.xlsx")
+sep = ("201909beer.xlsx")
+octo = ("201910beer.xlsx")
+nov = ("201911beer.xlsx")
+dec = ("201912beer.xlsx")
+
+#creating a multi-demisional array as a template with numpy
+#month = numpy.zeros((10,4)) 10 rows 4 columns
+#colums are titled in order of Current Month, Prior Year Current Month, Current Year Cumulative to Date, Prior Year Cumulative to Date
+#rows are titled Production, In Bottles and Cans, In Kegs, Tax Determined and Premises Use, Total Tax Removals, For Export, Cosumed on brewery premises,
+#Total Tax free removals, Total removals, Stock on hand end of month.
+janM = numpy.zeros((10,4), dtype=int)
+febM = numpy.zeros((10,4), dtype=int)
+marM = numpy.zeros((10,4), dtype=int)
+aprM = numpy.zeros((10,4), dtype=int)
+mayM = numpy.zeros((10,4), dtype=int)
+junM = numpy.zeros((10,4), dtype=int)
+julM = numpy.zeros((10,4), dtype=int)
+augM = numpy.zeros((10,4), dtype=int)
+sepM = numpy.zeros((10,4), dtype=int)
+octM = numpy.zeros((10,4), dtype=int)
+novM = numpy.zeros((10,4), dtype=int)
+decM = numpy.zeros((10,4), dtype=int)
+
+#creating a workbook for each month
+janWb = xlrd.open_workbook(jan)
+febWb = xlrd.open_workbook(feb)
+marWb = xlrd.open_workbook(mar)
+aprWb = xlrd.open_workbook(apr)
+mayWb = xlrd.open_workbook(may)
+junWb = xlrd.open_workbook(jun)
+julWb = xlrd.open_workbook(jul)
+augWb = xlrd.open_workbook(aug)
+sepWb = xlrd.open_workbook(sep)
+octWb = xlrd.open_workbook(octo)
+novWb = xlrd.open_workbook(nov)
+decWb = xlrd.open_workbook(dec)
+
+#creating a sheet for each month
+janSheet = janWb.sheet_by_index(0)
+febSheet = febWb.sheet_by_index(0)
+marSheet = marWb.sheet_by_index(0)
+aprSheet = aprWb.sheet_by_index(0)
+maySheet = mayWb.sheet_by_index(0)
+junSheet = junWb.sheet_by_index(0)
+julSheet = julWb.sheet_by_index(0)
+augSheet = augWb.sheet_by_index(0)
+sepSheet = sepWb.sheet_by_index(0)
+octSheet = octWb.sheet_by_index(0)
+novSheet = novWb.sheet_by_index(0)
+decSheet = decWb.sheet_by_index(0)
+
+#inserting each months cell values that are wanted into desired multi-demsinal array
+k = 0
+for i in range(4,8):
+    m = 0
+    for j in range(8,18):
+        janM[m,k] = janSheet.cell_value(j,i)
+        febM[m,k] = febSheet.cell_value(j,i)
+        marM[m,k] = marSheet.cell_value(j,i)
+        aprM[m,k] = aprSheet.cell_value(j,i)
+        mayM[m,k] = maySheet.cell_value(j,i)
+        junM[m,k] = junSheet.cell_value(j,i)
+        julM[m,k] = julSheet.cell_value(j,i)
+        augM[m,k] = augSheet.cell_value(j,i)
+        sepM[m,k] = sepSheet.cell_value(j,i)
+        octM[m,k] = octSheet.cell_value(j,i)
+        novM[m,k] = novSheet.cell_value(j,i)
+        decM[m,k] = decSheet.cell_value(j,i)
+        
+        m += 1
+    k += 1
+
+#print(janM)
+#print(febM)
+#print(marM)
+#print(aprM)
+#print(mayM)
+#print(junM)
+#print(julM)
+#print(augM)
+#print(sepM)
+#print(octM)
+#print(novM)
+#print(decM)
+
