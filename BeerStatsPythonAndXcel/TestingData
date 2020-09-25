@@ -1,0 +1,38 @@
+#
+#By: Christopher Busacker
+
+import matplotlib as plt
+import numpy
+import random
+import time
+import xlrd
+import beerArrays
+
+janM = beerArrays.janM
+febM = beerArrays.febM
+marM = beerArrays.marM
+aprM = beerArrays.aprM
+mayM = beerArrays.mayM
+junM = beerArrays.junM
+julM = beerArrays.julM
+augM = beerArrays.augM
+sepM = beerArrays.sepM
+octM = beerArrays.octM
+novM = beerArrays.novM
+decM = beerArrays.decM
+
+
+print(janM)
+print(febM)
+print(marM)
+print(aprM)
+print(mayM)
+print(junM)
+print(julM)
+print(augM)
+print(sepM)
+print(octM)
+print(novM)
+print(decM)
+
+#make a bar graph to compare cumlitve years
